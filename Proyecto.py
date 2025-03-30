@@ -109,5 +109,6 @@ plt.xlabel('Fecha')
 plt.ylabel('Valor')
 plt.legend(loc='upper left')
 plt.grid(True)
+st.pyplot(plt)
 
 
