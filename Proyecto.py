@@ -99,7 +99,7 @@ resultados = pd.DataFrame({
 }, index=data.index[window:])
 #Gráfica
 plt.figure(figsize=(12, 6))
-plt.plot(resultados.index, resultados['Retorno Predicho'], label='Retorno Predicho', color='gree', linestyle='--')
+plt.plot(resultados.index, resultados['Retorno Predicho'], label='Retorno Predicho', color='green', linestyle='--')
 plt.plot(resultados.index, resultados['VaR 95% Histórico'], label='VaR 95% Histórico', color='papaya', linestyle='-.')
 plt.plot(resultados.index, resultados['VaR 99% Histórico'], label='VaR 99% Histórico', color='tangerine', linestyle='-.')
 plt.plot(resultados.index, resultados['ES 95% Histórico'], label='ES 95% Histórico', color='midnight blue', linestyle=':')
