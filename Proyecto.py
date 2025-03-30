@@ -5,7 +5,6 @@ import yfinance as yf
 from scipy.stats import skew, kurtosis, norm, t
 import matplotlib.pyplot as plt
 
-# Título y subtítulo
 st.title("Calculo de Value-At-Risk y de Expected Shortfall")
 st.write("Proyecto 1")
 st.write("Métodos Cuantitativos en Finanzas 2025-2")
@@ -28,7 +27,6 @@ data["RD"] = data["Close"].pct_change()
 mean_return = np.mean(data["RD"])
 skewness = skew(data["RD"].dropna())
 excess_kurtosis = kurtosis(data["RD"].dropna())
-
 # Mostrar métricas de rendimiento
 st.subheader("Estadísticas de Rendimientos Diarios")
 st.write(f"Media: {mean_return:.5f}")
@@ -71,3 +69,30 @@ def color_negative_red(val):
     return f'color: {color}'
 styled_VaRES = VaRES.style.applymap(color_negative_red, subset=['VaR', 'ES'])
 st.write(styled_VaRES)
+
+window = 252  
+a95 = 0.95
+a99 = 0.99
+var_95_historico = []
+var_99_historico = []
+es_95_historico = []
+es_99_historico = []
+retornos_pred = [] 
+for i in range(window, len(data)):
+    rolling_retornos = data["RD"].iloc[i - window:i]
+    # Predicción del retorno (usamos el retorno promedio de los últimos 252 días como predicción)
+    prediccion = np.mean(rolling_retornos)
+    retornos_pred.append(prediccion)
+    # Cálculo del VaR y ES
+    var_95_historico.append(np.percentile(rolling_retornos, 100 * (1 - a95)))
+    var_99_historico.append(np.percentile(rolling_retornos, 100 * (1 - a99)))
+    es_95_historico.append(rolling_retornos[rolling_retornos <= var_95_historico[-1]].mean())
+    es_99_historico.append(rolling_retornos[rolling_retornos <= var_99_historico[-1]].mean())
+#Gráfica
+resultados = pd.DataFrame({
+    'Retorno Predicho': retornos_pred,
+    'VaR 95% Histórico': var_95_historico,
+    'VaR 99% Histórico': var_99_historico,
+    'ES 95% Histórico': es_95_historico,
+    'ES 99% Histórico': es_99_historico
+}, index=data.index[window:])
