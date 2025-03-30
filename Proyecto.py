@@ -14,7 +14,5 @@ st.markdown("""
 """)
 
 # Cargar datos del petróleo (Ticker: CL=F para Crude Oil WTI)
-st.write("a) Cargar datos históricos del petróleo crudo WTI (CL=F) desde 2010")
-ticker = "CL=F"
-data = yf.download(ticker, start="2010-01-01", end="2025-01-01")
-st.dataframe(data)
+ ticker = "CL=F"
+ data = yf.download(ticker, start="2010-01-01", end="2025-01-01")
