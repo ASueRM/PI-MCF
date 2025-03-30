@@ -103,11 +103,11 @@ plt.plot(resultados.index, resultados['Retorno Predicho'], label='Retorno Predic
 plt.plot(resultados.index, resultados['VaR 95% Histórico'], label='VaR 95% Histórico', color='#E56717', linestyle='-', linewidth=2)
 plt.plot(resultados.index, resultados['VaR 99% Histórico'], label='VaR 99% Histórico', color='#FFA800', linestyle='-', linewidth=2)
 plt.plot(resultados.index, resultados['ES 95% Histórico'], label='ES 95% Histórico', color='#191970', linestyle='-', linewidth=2)
-plt.plot(resultados.index, resultados['ES 99% Histórico'], label='ES 99% Histórico', color='#097364', linestyle='-', linewidth=2)
+plt.plot(resultados.index, resultados['ES 99% Histórico'], label='ES 99% Histórico', color='#014D4E', linestyle='-', linewidth=2)
 plt.title('Rolling windows (Ganancias y Pérdidas, VaR y ES)')
 plt.xlabel('Fecha')
 plt.ylabel('Valor')
 plt.legend(loc='upper left')
 plt.grid(True)
-st.pyplot(plt)
+
 
