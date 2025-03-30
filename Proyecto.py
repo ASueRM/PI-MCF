@@ -1,7 +1,7 @@
-import streamlit as st
 import pandas as pd
 import numpy as np
 import yfinance as yf
+from scipy.stats import skew, kurtosis
 
 # Título y subtítulo
 st.set_page_config(page_title="Calculo de Value-At-Risk y de Expected Shortfall", layout="wide")
@@ -21,7 +21,7 @@ st.subheader("Activo financiero: Petróleo crudo WTI (CL=F)")
 st.write("Nota: Para este proyecto estamos considerando datos desde 01/01/2010 hasta 01/01/2025")
 
 # Rendimientos diarios y métricas
-data["RD"] = data["Adj Close"].pct_change()
+data["RD"] = data["Close"].pct_change()
 mean_return = np.mean(data["RD"])
 skewness = skew(data["RD"].dropna())
 excess_kurtosis = kurtosis(data["RD"].dropna())
