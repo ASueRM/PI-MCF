@@ -10,5 +10,5 @@ st.subheader("Métodos Cuantitativos en Finanzas 2025-2")
 # 🔹 Información del equipo
 st.markdown("""
 ### 👥 Integrantes del equipo:
-- **Alix Sue Rangel Mondragón ** - No. de cuenta: 320219515
+- Alix Sue Rangel Mondragón - No. de cuenta: 320219515
 """)
