@@ -70,6 +70,7 @@ def color_negative_red(val):
 styled_VaRES = VaRES.style.applymap(color_negative_red, subset=['VaR', 'ES'])
 st.write(styled_VaRES)
 
+#Rolling window
 window = 252  
 a95 = 0.95
 a99 = 0.99
@@ -78,6 +79,7 @@ var_99_historico = []
 es_95_historico = []
 es_99_historico = []
 retornos_pred = [] 
+#Cálculos y resultados
 for i in range(window, len(data)):
     rolling_retornos = data["RD"].iloc[i - window:i]
     # Predicción del retorno (usamos el retorno promedio de los últimos 252 días como predicción)
@@ -88,7 +90,6 @@ for i in range(window, len(data)):
     var_99_historico.append(np.percentile(rolling_retornos, 100 * (1 - a99)))
     es_95_historico.append(rolling_retornos[rolling_retornos <= var_95_historico[-1]].mean())
     es_99_historico.append(rolling_retornos[rolling_retornos <= var_99_historico[-1]].mean())
-#Gráfica
 resultados = pd.DataFrame({
     'Retorno Predicho': retornos_pred,
     'VaR 95% Histórico': var_95_historico,
@@ -96,3 +97,17 @@ resultados = pd.DataFrame({
     'ES 95% Histórico': es_95_historico,
     'ES 99% Histórico': es_99_historico
 }, index=data.index[window:])
+#Gráfica
+plt.figure(figsize=(12, 6))
+plt.plot(resultados.index, resultados['Retorno Predicho'], label='Retorno Predicho', color='gree', linestyle='--')
+plt.plot(resultados.index, resultados['VaR 95% Histórico'], label='VaR 95% Histórico', color='papaya', linestyle='-.')
+plt.plot(resultados.index, resultados['VaR 99% Histórico'], label='VaR 99% Histórico', color='tangerine', linestyle='-.')
+plt.plot(resultados.index, resultados['ES 95% Histórico'], label='ES 95% Histórico', color='midnight blue', linestyle=':')
+plt.plot(resultados.index, resultados['ES 99% Histórico'], label='ES 99% Histórico', color='teal', linestyle=':')
+plt.title('Rollinn windows (Ganancias y Pérdidas, VaR y ES)')
+plt.xlabel('Fecha')
+plt.ylabel('Valor')
+plt.legend(loc='upper left')
+plt.grid(True)
+st.pyplot(plt)
+
