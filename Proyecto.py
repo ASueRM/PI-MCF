@@ -104,7 +104,7 @@ plt.plot(resultados.index, resultados['VaR 95% Histórico'], label='VaR 95% Hist
 plt.plot(resultados.index, resultados['VaR 99% Histórico'], label='VaR 99% Histórico', color='#FFA800', linestyle='-', linewidth=2)
 plt.plot(resultados.index, resultados['ES 95% Histórico'], label='ES 95% Histórico', color='#191970', linestyle='-', linewidth=2)
 plt.plot(resultados.index, resultados['ES 99% Histórico'], label='ES 99% Histórico', color='#097364', linestyle='-', linewidth=2)
-plt.title('Rollinn windows (Ganancias y Pérdidas, VaR y ES)')
+plt.title('Rolling windows (Ganancias y Pérdidas, VaR y ES)')
 plt.xlabel('Fecha')
 plt.ylabel('Valor')
 plt.legend(loc='upper left')
