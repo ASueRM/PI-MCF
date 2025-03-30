@@ -14,8 +14,8 @@ st.markdown("""
 """)
 
 # Cargar datos del petróleo (Ticker: CL=F para Crude Oil WTI)
- activo = "CL=F"
- data = yf.download(activo, start="2010-01-01", end="2025-01-01")
+activo = "CL=F"
+data = yf.download(activo, start="2010-01-01", end="2025-01-01")
 
 st.write("Activo financiero: Petróleo crudo WTI (CL=F)")
 st.write("Nota: Para este proyecto estamos considerando datos desde 01/01/2010 hasta 01/01/2025")
