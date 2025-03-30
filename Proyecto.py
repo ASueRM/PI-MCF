@@ -37,7 +37,7 @@ st.write(f"Exceso de Curtosis: {excess_kurtosis:.5f}")
 
 # VaR y ES
 nconf = [0.95, 0.975, 0.99]
-Var = {}
+VaR = {}
 ES= {}
 # Método Paramétrico (Normal)
 mean_r = np.mean(data['RD'])
