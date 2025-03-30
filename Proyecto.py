@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import yfinance as yf
-from scipy.stats import skew, kurtosis
+from scipy.stats import skew, kurtosis, t
+import matplotlib.pyplot as plt
 
 # Título y subtítulo
 st.set_page_config(page_title="Calculo de Value-At-Risk y de Expected Shortfall", layout="wide")
@@ -22,7 +23,7 @@ st.write("Nota: Para este proyecto estamos considerando datos desde 01/01/2010 h
 
 # Rendimientos diarios y métricas
 if 'Adj Close' in data.columns:
-    data["RD"] = data["Adj Close"].pct_change()
+    data["RD"] = data["Adj Close"].pct_change().dropna()
 data["RD"] = data["Close"].pct_change()
 mean_return = np.mean(data["RD"])
 skewness = skew(data["RD"].dropna())
