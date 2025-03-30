@@ -63,7 +63,7 @@ for alpha in nconf:
     VaR[f'Monte Carlo {alpha}'] = -np.percentile(simulations, 100 * (1 - alpha))
     ES[f'Monte Carlo {alpha}'] = -simulations[simulations <= -VaR[f'Monte Carlo {alpha}']].mean()
 #Rresultados
-VaRESdf = pd.DataFrame({'Método': list(VaR.keys()), 'VaR': list(VaR.values()), 'ES': list(ES.values())})
+VaRES = pd.DataFrame({'Método': list(VaR.keys()), 'VaR': list(VaR.values()), 'ES': list(ES.values())})
 st.subheader("Resultados de VaR y Expected Shortfall")
 st.dataframe(VaRES.style.format({'VaR': '{:.6f}', 'ES': '{:.6f}'}).set_properties(**{'text-align': 'center'}))
 
