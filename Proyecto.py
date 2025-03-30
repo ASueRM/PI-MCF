@@ -65,5 +65,5 @@ for alpha in nconf:
 #Rresultados
 VaRESdf = pd.DataFrame({'Método': list(VaR.keys()), 'VaR': list(VaR.values()), 'ES': list(ES.values())})
 st.subheader("Resultados de VaR y Expected Shortfall")
-st.dataframe(var_es_df.style.format({'VaR': '{:.6f}', 'ES': '{:.6f}'}).set_properties(**{'text-align': 'center'}))
+st.dataframe(VaRES.style.format({'VaR': '{:.6f}', 'ES': '{:.6f}'}).set_properties(**{'text-align': 'center'}))
 
