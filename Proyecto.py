@@ -5,6 +5,7 @@ import yfinance as yf
 
 # 🔹 Título y subtítulo
 st.set_page_config(page_title="Calculo de Value-At-Risk y de Expected Shortfall", layout="wide")
+st.title("Calculo de Value-At-Risk y de Expected Shortfall")
 st.write("Proyecto 1")
 st.write("Métodos Cuantitativos en Finanzas 2025-2")
 # 🔹 Información del equipo
