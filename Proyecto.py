@@ -4,8 +4,8 @@ import numpy as np
 import yfinance as yf
 
 # 🔹 Título y subtítulo
-st.title(" Proyecto 1")
-
+st.title(" Calculo de Value-At-Risk y de Expected Shortfall")
+st.subheader("Proyecto 1")
 st.subheader("Métodos Cuantitativos en Finanzas 2025-2")
 # 🔹 Información del equipo
 st.markdown("""
