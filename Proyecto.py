@@ -4,15 +4,26 @@ import numpy as np
 import yfinance as yf
 from scipy.stats import skew, kurtosis, norm, t
 import matplotlib.pyplot as plt
+import streamlit as st
 
-st.title("Calculo de Value-At-Risk y de Expected Shortfall")
-st.write("Proyecto 1")
-st.write("Métodos Cuantitativos en Finanzas 2025-2")
-# Información del equipo
+
+st.markdown("<h1 style='color:#1E3A8A;'>Cálculo de Value-At-Risk y de Expected Shortfall</h1>", unsafe_allow_html=True)
+
+
+st.markdown("<h3 style='color:#4B5563;'>Proyecto 1</h3>", unsafe_allow_html=True)
+
+
+st.markdown("<h4 style='color:#6B7280;'>Métodos Cuantitativos en Finanzas 2025-2</h4>", unsafe_allow_html=True)
+
+# Información del equipo 
 st.markdown("""
-# Integrantes del equipo:
-- Alix Sue Rangel Mondragón - No. de cuenta: 320219515
-""")
+    <h3 style='color:#111827;'>Integrantes del equipo:</h3>
+    <ul>
+        <li><b style='color:#2D3748;'>Alix Sue Rangel Mondragón</b> - No. de cuenta: 320219515</li>
+        <li><b style='color:#2D3748;'>Edgar Giovanny Caravantes Román</b> - No. de cuenta: 421015887</li>
+    </ul>
+""", unsafe_allow_html=True)
+
 
 # Cargar datos del petróleo (Ticker: CL=F para Crude Oil WTI)
 activo = "CL=F"
