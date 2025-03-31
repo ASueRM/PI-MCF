@@ -28,8 +28,26 @@ st.markdown("""
 # Cargar datos del petróleo (Ticker: CL=F para Crude Oil WTI)
 activo = "CL=F"
 data = yf.download(activo, start="2010-01-01", end="2025-01-01")
-st.subheader("Activo financiero: Petróleo crudo WTI (CL=F)")
-st.write("Nota: Para este proyecto estamos considerando datos desde 01/01/2010 hasta 01/01/2025")
+st.markdown(
+    """
+    <style>
+        .subheader {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1E3A8A; /* Azul elegante */
+        }
+        .note {
+            font-size: 16px;
+            color: #6B7280; /* Gris sobrio */
+            font-style: italic;
+        }
+    </style>
+    <div class="subheader">Activo financiero: Petróleo crudo WTI (CL=F)</div>
+    <p class="note">Nota: Para este proyecto estamos considerando datos desde 01/01/2010 hasta 01/01/2025</p>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # Rendimientos diarios y métricas
 if 'Adj Close' in data.columns:
