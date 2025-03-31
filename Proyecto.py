@@ -5,8 +5,8 @@ import yfinance as yf
 from scipy.stats import skew, kurtosis, norm, t
 import matplotlib.pyplot as plt
 import streamlit as st
-
-
+    
+    
 st.markdown("<h1 style='color:#1E3A8A;'>Cálculo de Value-At-Risk y de Expected Shortfall</h1>", unsafe_allow_html=True)
 
 
