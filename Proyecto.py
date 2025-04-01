@@ -20,8 +20,8 @@ st.markdown("""
     <ul>
         <li><b style='color:#2D3748;'>Alix Sue Rangel Mondragón</b> - No. de cuenta: 320219515</li>
         <li><b style='color:#2D3748;'>Edgar Giovanny Caravantes Román</b> - No. de cuenta: 421015887</li>
-        <li><b style='color:#2D3748;'>Huitzil Sánchez Martínez</b> - No. de cuenta:317318681  </li>
-        <li><b style='color:#2D3748;'>Martín </b> - No. de cuenta:  </li>
+        <li><b style='color:#2D3748;'>Huitzil Sánchez Martínez</b> - No. de cuenta: 317318681  </li>
+        <li><b style='color:#2D3748;'>Martín Sierra González </b> - No. de cuenta: 316027308  </li>
     </ul>
 """, unsafe_allow_html=True)
 
