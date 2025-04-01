@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
     
     
-st.markdown("<h1 style='color:#1E3A8A;'>Cálculo de Value-At-Risk y de Expected Shortfall</h1>", unsafe_allow_html=True)
-
+st.markdown("<h1 style='color:#1E3A8A;'>Cálculo de Value-At-Risk y Expected Shortfall</h1>", unsafe_allow_html=True)
 
 st.markdown("<h3 style='color:#4B5563;'>Proyecto 1</h3>", unsafe_allow_html=True)
 
@@ -21,6 +20,8 @@ st.markdown("""
     <ul>
         <li><b style='color:#2D3748;'>Alix Sue Rangel Mondragón</b> - No. de cuenta: 320219515</li>
         <li><b style='color:#2D3748;'>Edgar Giovanny Caravantes Román</b> - No. de cuenta: 421015887</li>
+        <li><b style='color:#2D3748;'>Huitzil Sánchez Martínez</b> - No. de cuenta:317318681  </li>
+        <li><b style='color:#2D3748;'>Martín </b> - No. de cuenta:  </li>
     </ul>
 """, unsafe_allow_html=True)
 
@@ -56,11 +57,42 @@ data["RD"] = data["Close"].pct_change()
 mean_return = np.mean(data["RD"])
 skewness = skew(data["RD"].dropna())
 excess_kurtosis = kurtosis(data["RD"].dropna())
-# Mostrar métricas de rendimiento
+
+st.markdown("""
+        <style>
+            .metric-container {
+                background-color: #1E3A8A; /* Azul rey */
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .metric-title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .metric-value {
+                font-size: 22px;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
 st.subheader("Estadísticas de Rendimientos Diarios")
-st.write(f"Media: {mean_return:.5f}")
-st.write(f"Sesgo: {skewness:.5f}")
-st.write(f"Exceso de Curtosis: {excess_kurtosis:.5f}")
+col1, col2, col3 = st.columns(3)
+    
+with col1:
+    st.markdown(f'<div class="metric-container"><div class="metric-title">Media</div><div class="metric-value">{mean_return:.5f}</div></div>', unsafe_allow_html=True)
+with col2:
+    st.markdown(f'<div class="metric-container"><div class="metric-title">Sesgo</div><div class="metric-value">{skewness:.5f}</div></div>', unsafe_allow_html=True)
+with col3:
+    st.markdown(f'<div class="metric-container"><div class="metric-title">Exceso de Curtosis</div><div class="metric-value">{excess_kurtosis:.5f}</div></div>', unsafe_allow_html=True)
+
+
+# Mostrar métricas de rendimiento
+#st.subheader("Estadísticas de Rendimientos Diarios")
+#st.write(f"Media: {mean_return:.5f}")
+#st.write(f"Sesgo: {skewness:.5f}")
+#st.write(f"Exceso de Curtosis: {excess_kurtosis:.5f}")
 
 # VaR y ES
 nconf = [0.95, 0.975, 0.99]
